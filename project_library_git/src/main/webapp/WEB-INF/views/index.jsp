@@ -278,7 +278,6 @@ color: #267AC2;
 					<li style=" font-size: var(--font-micro); margin-bottom: 10px">출판사 : <span><a href="">${ bookVo.publisher }</a></span></li>
 					<li class="main_book_int" style=" font-size: var(--font-micro); line-height: 20px;">${ bookVo.introduceBook }</li>					
 				</ul>
-
 </div>
 	
 <div class="main_guide_box" >
