@@ -125,119 +125,119 @@ div#chatbox div.others {
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <script>
-	const roomId = '${ room.roomId }';
-	var mySessionId;
-	var webSocket;
+// 	const roomId = '${ room.roomId }';
+// 	var mySessionId;
+// 	var webSocket;
 
-	var app = new Vue({
-		el: '#app',
-		data: {
-			nickname: '${ id }',
-// 			nickname: '', // 닉네임 사용 시
-			message: '',
-			chatboxContent: '',
-			showNickname: true,
-			showChatting: false
-		},
-		methods: {
-			enter: function () {
-				this.connect();
-				this.addWinEvt();
-			},
-			connect: function () {
-				webSocket = new WebSocket('wss://localhost:8080/chat');
-				webSocket.onopen = this.onOpen;
-				webSocket.onmessage = this.onMessage; // 소켓서버로부터 데이터를 받을때 호출됨
-				webSocket.onclose = this.onClose;
-			},
-			onOpen: function () {
-				this.showNickname = false;
-				this.showChatting = true;
+// 	var app = new Vue({
+// 		el: '#app',
+// 		data: {
+// 			nickname: '${ id }',
+// // 			nickname: '', // 닉네임 사용 시
+// 			message: '',
+// 			chatboxContent: '',
+// 			showNickname: true,
+// 			showChatting: false
+// 		},
+// 		methods: {
+// 			enter: function () {
+// 				this.connect();
+// 				this.addWinEvt();
+// 			},
+// 			connect: function () {
+// 				webSocket = new WebSocket('wss://localhost:8080/chat');
+// 				webSocket.onopen = this.onOpen;
+// 				webSocket.onmessage = this.onMessage; // 소켓서버로부터 데이터를 받을때 호출됨
+// 				webSocket.onclose = this.onClose;
+// 			},
+// 			onOpen: function () {
+// 				this.showNickname = false;
+// 				this.showChatting = true;
 				
-				let obj = {
-						type: 'ENTER',
-						roomId: roomId,
-						writer: this.nickname
-				};
-				let str = JSON.stringify(obj);
-				webSocket.send(str);
-			},
-			onMessage: function (event) {
-				let data = event.data; // json 문자열을 받음
-				let obj = JSON.parse(data);
-				let str = '';
+// 				let obj = {
+// 						type: 'ENTER',
+// 						roomId: roomId,
+// 						writer: this.nickname
+// 				};
+// 				let str = JSON.stringify(obj);
+// 				webSocket.send(str);
+// 			},
+// 			onMessage: function (event) {
+// 				let data = event.data; // json 문자열을 받음
+// 				let obj = JSON.parse(data);
+// 				let str = '';
 				
-				if (obj.type == 'SESSION_ID') {
-					mySessionId = obj.sessionId;
-				} else if (obj.type == 'ENTER') {
-					str = `<div>
-					           <span>\${obj.writer}님이 입장하셨습니다.</span>
-						   </div>`;
-				} else if (obj.type == 'LEAVE') {
-					str = `<div>
-					           <span>\${obj.writer}님이 퇴장하셨습니다.</span>
-					       </div>`;
-				} else { // obj.type == 'CHAT'
-					if (obj.sessionId == mySessionId) {
-						str = '<div class="me"><span class="me">';
-					} else {
-						str = '<div class="others"><span class="others">';
-					}
-					str += `\${obj.writer} : \${obj.message}</span></div>`;
-				}
-				this.chatboxContent += str;
-				this.scrollDown();
-			},
-			onClose: function () {
-				this.chatboxContent += '<div>채팅방 연결을 끊었습니다.</div>';
-				this.scrollDown();
-			},
-			disconnect: function () {
-				let obj = {
-						type: 'LEAVE',
-						roomId: roomId,
-						writer: this.nickname
-				};
-				let str = JSON.stringify(obj);
-				webSocket.send(str);
-				webSocket.close();
-			},
-			send: function () {
-				if (this.message == '') {
-					return;
-				}
+// 				if (obj.type == 'SESSION_ID') {
+// 					mySessionId = obj.sessionId;
+// 				} else if (obj.type == 'ENTER') {
+// 					str = `<div>
+// 					           <span>\${obj.writer}님이 입장하셨습니다.</span>
+// 						   </div>`;
+// 				} else if (obj.type == 'LEAVE') {
+// 					str = `<div>
+// 					           <span>\${obj.writer}님이 퇴장하셨습니다.</span>
+// 					       </div>`;
+// 				} else { // obj.type == 'CHAT'
+// 					if (obj.sessionId == mySessionId) {
+// 						str = '<div class="me"><span class="me">';
+// 					} else {
+// 						str = '<div class="others"><span class="others">';
+// 					}
+// 					str += `\${obj.writer} : \${obj.message}</span></div>`;
+// 				}
+// 				this.chatboxContent += str;
+// 				this.scrollDown();
+// 			},
+// 			onClose: function () {
+// 				this.chatboxContent += '<div>채팅방 연결을 끊었습니다.</div>';
+// 				this.scrollDown();
+// 			},
+// 			disconnect: function () {
+// 				let obj = {
+// 						type: 'LEAVE',
+// 						roomId: roomId,
+// 						writer: this.nickname
+// 				};
+// 				let str = JSON.stringify(obj);
+// 				webSocket.send(str);
+// 				webSocket.close();
+// 			},
+// 			send: function () {
+// 				if (this.message == '') {
+// 					return;
+// 				}
 
-				let obj = {
-						type: 'CHAT',
-						//sendWho: 'ME',
-						roomId: roomId,
-						sessionId: mySessionId,
-						writer: this.nickname,
-						message: this.message
-				};
-				let str = JSON.stringify(obj);
-				webSocket.send(str);
-				this.message = '';
-			},
-			scrollDown: function () {
-				let chatbox = document.getElementById('chatbox');
-				chatbox.scrollTop = chatbox.scrollHeight;
-			},
-			addWinEvt: function() {
-				window.addEventListener('beforeunload', function (event) {
-					let dialogText = 'Dialog text here';
-					// Chrome requires returnValue to be set
-					event.returnValue = dialogText;
-					return dialogText;
-				});
+// 				let obj = {
+// 						type: 'CHAT',
+// 						//sendWho: 'ME',
+// 						roomId: roomId,
+// 						sessionId: mySessionId,
+// 						writer: this.nickname,
+// 						message: this.message
+// 				};
+// 				let str = JSON.stringify(obj);
+// 				webSocket.send(str);
+// 				this.message = '';
+// 			},
+// 			scrollDown: function () {
+// 				let chatbox = document.getElementById('chatbox');
+// 				chatbox.scrollTop = chatbox.scrollHeight;
+// 			},
+// 			addWinEvt: function() {
+// 				window.addEventListener('beforeunload', function (event) {
+// 					let dialogText = 'Dialog text here';
+// 					// Chrome requires returnValue to be set
+// 					event.returnValue = dialogText;
+// 					return dialogText;
+// 				});
 
-				let vm = this;
-				window.addEventListener('unload', function () {
-					vm.disconnect();
-				});
-			}
-		}
-	});
+// 				let vm = this;
+// 				window.addEventListener('unload', function () {
+// 					vm.disconnect();
+// 				});
+// 			}
+// 		}
+// 	});
 </script>
 </body>
 </html>
