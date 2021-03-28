@@ -300,13 +300,12 @@ public class BookController {
 	@GetMapping("/bestBooks")
 	public String bestBooks(
 			@RequestParam(defaultValue = "1") int pageNum,
-			@RequestParam(defaultValue = "") String category,
-			@RequestParam(defaultValue = "") String search,
-			
+//			@RequestParam(defaultValue = "") String category,
+//			@RequestParam(defaultValue = "") String search,
 			Model model) {
 		
 		// 검색어 기준으로 도서 수 가져오기
-		int count = bookService.getCountBySearch(category, search);
+		int count = 10;
 				
 		// 한페이지당 보여줄 글갯수 설정
 		int pageSize = 10;
