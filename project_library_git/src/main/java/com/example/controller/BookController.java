@@ -20,10 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.domain.BookVo;
 import com.example.domain.PageDto;
-import com.example.domain.ReviewVo;
 import com.example.service.BookService;
 import com.example.service.MySqlService;
-import com.example.service.ReviewService;
 
 import lombok.extern.java.Log;
 
@@ -38,8 +36,6 @@ public class BookController {
 	@Autowired
 	private MySqlService mySqlService;
 	
-	@Autowired
-	private ReviewService reviewService;
 	
 	
 	
