@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.domain.AttachVo;
 import com.example.domain.NoticeVo;
-import com.example.mapper.AttachMapper;
 import com.example.mapper.NoticeMapper;
 
 @Service
@@ -17,8 +15,7 @@ public class NoticeService {
 	
 	@Autowired
 	private NoticeMapper noticeMapper;
-	@Autowired
-	private AttachMapper attachMapper;
+	
 	
 	
 	// 주글쓰기
@@ -60,11 +57,6 @@ public class NoticeService {
 		noticeMapper.deleteNoticeByNum(num);
 	}
 	
-	@Transactional
-	public void deleteNoticeAndAttaches(int num) {
-		noticeMapper.deleteNoticeByNum(num);
-		attachMapper.deleteAttachesByNoNum(num);
-	}
 	
 	public void deleteAll() {
 		noticeMapper.deleteAll();
@@ -110,52 +102,6 @@ public class NoticeService {
 	}
 	
 	
-//	// 자료실 게시판 주글쓰기
-//	@Transactional
-//	public void addNoticeAndAttaches(NoticeVo noticeVo, List<AttachVo> attachList) {
-//		// 게시글 등록
-//		noticeMapper.addNotice(noticeVo);
-//		
-//		// 첨부파일정보 등록
-//		for (AttachVo attachVo : attachList) {
-//			attachMapper.insertAttach(attachVo);
-//		}
-//	}
-//	
-//	// 자료실 게시판 답글쓰기
-//	@Transactional
-//	public void updateAndAddReplyAndAddAttaches(NoticeVo noticeVo, List<AttachVo> attachList) {
-//		// 답글을 쓰는 대상글과 같은 글그룹에서 
-//		// 답글을 쓰는 대상글의 순번보다 큰 글의 순번을 1씩 증가시킴
-//		noticeMapper.updateReSeq(noticeVo.getReRef(), noticeVo.getReSeq());
-//		
-//		// insert할 답글정보로 수정
-//		noticeVo.setReLev(noticeVo.getReLev() + 1);
-//		noticeVo.setReSeq(noticeVo.getReSeq() + 1);
-//		
-//		// 답글 insert하기
-//		noticeMapper.addNotice(noticeVo);
-//		
-//		
-//		// 첨부파일 정보 insert
-//		for (AttachVo attachVo : attachList) {
-//			attachMapper.insertAttach(attachVo);
-//		}
-//	}
-	
-	
-	@Transactional
-	public void updateNoticeAndAddAttachesAndDeleteAttaches(NoticeVo noticeVo, List<AttachVo> attaches, List<Integer> delFileNums) {
-		noticeMapper.updateBoard(noticeVo);
-		
-		for (AttachVo attachVo : attaches) {
-			attachMapper.insertAttach(attachVo);
-		}
-		
-		if (delFileNums != null) {
-			attachMapper.deleteAttachesByNums(delFileNums);
-		}
-	}
 	
 }
 

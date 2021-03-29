@@ -1,24 +1,18 @@
 package com.example.service;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.AnnounceVo;
-import com.example.domain.AttachVo;
 import com.example.mapper.AnnounceMapper;
-import com.example.mapper.AttachMapper;
 
 @Service
 public class AnnounceService {
 	
 	@Autowired
 	private AnnounceMapper announceMapper;
-	@Autowired
-	private AttachMapper attachMapper;
 	
 	
 	// 주글쓰기
@@ -60,11 +54,6 @@ public class AnnounceService {
 		announceMapper.deleteNoticeByNum(num);
 	}
 	
-	@Transactional
-	public void deleteNoticeAndAttaches(int num) {
-		announceMapper.deleteNoticeByNum(num);
-		attachMapper.deleteAttachesByNoNum(num);
-	}
 	
 	public void deleteAll() {
 		announceMapper.deleteAll();
@@ -130,18 +119,6 @@ public class AnnounceService {
 //	}
 	
 	
-	@Transactional
-	public void updateNoticeAndAddAttachesAndDeleteAttaches(AnnounceVo announceVo, List<AttachVo> attaches, List<Integer> delFileNums) {
-		announceMapper.updateBoard(announceVo);
-		
-		for (AttachVo attachVo : attaches) {
-			attachMapper.insertAttach(attachVo);
-		}
-		
-		if (delFileNums != null) {
-			attachMapper.deleteAttachesByNums(delFileNums);
-		}
-	}
 	
 }
 

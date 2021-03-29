@@ -20,5 +20,5 @@ public class NoticeVo {
 	private int reSeq;
 	
 	//private AttachVo attachVo;        // JOIN 쿼리 1:1 관계
-	private List<AttachVo> attachList;  // JOIN 쿼리 1:N 관계
+//	private List<AttachVo> attachList;  // JOIN 쿼리 1:N 관계
 }
