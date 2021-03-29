@@ -251,93 +251,93 @@ color: #267AC2;
 <jsp:include page="/WEB-INF/views/include/sideBar.jsp" /> 
 
 <div id="wrap_main">  
-		<div id="slider-wrap">
+	<div id="slider-wrap">
 		<ul id="slider">
-		<li> <img src="images/2.jpg"></li>
-		<li><img src="images/5.jpg"></li>
-		<li><img src="images/6.jpg"></li>
-		<li><img src="images/4.jpg"></li>
-		<li><img src="images/3.jpeg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/5.jpg"></li>
+			<li><img src="images/6.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+			<li><img src="images/3.jpeg"></li>
 		</ul>
 		<div class="slider-btns" id="next"><span>▶</span></div>
     	<div class="slider-btns" id="previous"><span>◀</span></div>
-    	  <div id="slider-pagination-wrap">
-        <ul>
-        </ul>
-    </div>
+    	<div id="slider-pagination-wrap">
+	        <ul>
+	        </ul>
+	    </div>
 	</div>
 
-<div class="main_list_title"><p>추천 도서</p></div>
-<div id="main_recommend">
+	<div class="main_list_title"><p>추천 도서</p></div>
+	<div id="main_recommend">
 
-<div class="bookImg_recommend">
-	<div class="main_bookImg_big"><a href="/book/content?num=${ bookVo.num }"><img src="/upload/${ bookVo.cover }" width="190" height="230"></a></div>
-				<ul class="main_inner_txt">
-					<h3><li style="font-weight: var(--weight-semi-bold); width: 280px;"><a href="/book/content?num=${ bookVo.num }">${ bookVo.bookName }</a></li></h3>
-					<li style=" font-size: var(--font-micro);">저자 : <span><a href="">${ bookVo.writer }</a></span></li>
-					<li style=" font-size: var(--font-micro); margin-bottom: 10px">출판사 : <span><a href="">${ bookVo.publisher }</a></span></li>
-					<li class="main_book_int" style=" font-size: var(--font-micro); line-height: 20px;">${ bookVo.introduceBook }</li>					
-				</ul>
-</div>
-	
-<div class="main_guide_box" >
-		    <hr style="color:#d4d5d6; margin-right: 30px;">
-				<ul style="width:430px;">
-				<h2 style=" text-align: center; margin-bottom: 20px;     border-bottom: 2px solid #3d7ab1 ; padding-bottom: 20px;;">대출규정안내</h2>
-					
-					<h3><li>- 대출권수: <strong style="color:#f26532">5권</strong></li></h3>
-					<h3><li>- 대출기간: <strong style="color:#f26532">15일</strong></li></h3>
-					<h3><li>- 연장횟수: <strong style="color:#f26532">0회</strong></li></h3>
-					<h3><h3><li>- 도서별예약권수: <strong style="color:#f26532">5권</strong></li></h3>
-				</ul>
-		    </div>
-</div>
-
-<div class="main_list_title"><p>베스트 도서</p><a href="/book/bestBooks">더보기 <i class="fas fa-angle-right"></i></a></div>
-<div id="main_best">
-
-		<ul id="main_ul">
-		<li class="prev"><a href="/"><i class="fas fa-angle-left" style="font-size: 50px; margin-top:30px; color: #ccc;"></i></a></li>
-		<c:choose>
-			<c:when test="${ not empty bestBookList }">
-				<c:forEach var="best" items="${ bestBookList }">
-					<li style="width: 110px; height: 170px;">
-						<a href="/book/content?num=${ best.num }">
-							<img src="/upload/${ best.cover }" width="82px;" height="112px;" style="margin-left: auto; margin-right: auto; display: block;">
-							<h5 class="titleLine">${ best.bookName }</h5>
-							<h5 class="writerLine" style="font-weight: lighter">${ best.writer }</h5>
-						</a>
-					</li>
-				</c:forEach>
-			</c:when>
-		</c:choose>
-		<li class="next"><a href="/"><i class="fas fa-angle-right" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
-		</ul>
+	<div class="bookImg_recommend">
+		<div class="main_bookImg_big"><a href="/book/content?num=${ bookVo.num }"><img src="/upload/${ bookVo.cover }" width="190" height="230"></a></div>
+					<ul class="main_inner_txt">
+						<h3><li style="font-weight: var(--weight-semi-bold); width: 280px;"><a href="/book/content?num=${ bookVo.num }">${ bookVo.bookName }</a></li></h3>
+						<li style=" font-size: var(--font-micro);">저자 : <span><a href="">${ bookVo.writer }</a></span></li>
+						<li style=" font-size: var(--font-micro); margin-bottom: 10px">출판사 : <span><a href="">${ bookVo.publisher }</a></span></li>
+						<li class="main_book_int" style=" font-size: var(--font-micro); line-height: 20px;">${ bookVo.introduceBook }</li>					
+					</ul>
+	</div>
 		
-   
+	<div class="main_guide_box" >
+			    <hr style="color:#d4d5d6; margin-right: 30px;">
+					<ul style="width:430px;">
+					<h2 style=" text-align: center; margin-bottom: 20px; border-bottom: 2px solid #3d7ab1; padding-bottom: 20px;">대출규정안내</h2>
+						
+						<h3><li>- 대출권수: <strong style="color:#f26532">5권</strong></li></h3>
+						<h3><li>- 대출기간: <strong style="color:#f26532">15일</strong></li></h3>
+						<h3><li>- 연장횟수: <strong style="color:#f26532">0회</strong></li></h3>
+						<h3><h3><li>- 도서별예약권수: <strong style="color:#f26532">5권</strong></li></h3>
+					</ul>
+			    </div>
+	</div>
 	
-</div>
-<div class="main_list_title"><p>신착 도서</p><a href="/book/newBooks">더보기 <i class="fas fa-angle-right"></i></a></div>
-<div id="main_new">
-
-		<ul id="main_ul">
-		<li class="prev"><a href="/"><i class="fas fa-angle-left" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
-		<c:choose>
-			<c:when test="${ not empty newList }">
-				<c:forEach var="new" items="${ newList }">
-					<li style="width: 110px; height: 170px;">
-						<a href="/book/content?num=${ new.num }">
-							<img src="/upload/${ new.cover }" width="82px;"height="112px;" style="margin-left: auto; margin-right: auto; display: block;">
-							<h5 class="titleLine">${ new.bookName }</h5>
-							<h5 class="writerLine" style="font-weight: lighter" >${ new.writer }</h5>
-						</a>
-					</li>
-				</c:forEach>
-			</c:when>
-		</c:choose>
-		<li class="next"><a href="/"><i class="fas fa-angle-right" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
-		</ul>
-</div>
+	<div class="main_list_title"><p>베스트 도서</p><a href="/book/bestBooks">더보기 <i class="fas fa-angle-right"></i></a></div>
+	<div id="main_best">
+	
+			<ul id="main_ul">
+			<li class="prev"><a href="/"><i class="fas fa-angle-left" style="font-size: 50px; margin-top:30px; color: #ccc;"></i></a></li>
+			<c:choose>
+				<c:when test="${ not empty bestBookList }">
+					<c:forEach var="best" items="${ bestBookList }">
+						<li style="width: 110px; height: 170px;">
+							<a href="/book/content?num=${ best.num }">
+								<img src="/upload/${ best.cover }" width="82px;" height="112px;" style="margin-left: auto; margin-right: auto; display: block;">
+								<h5 class="titleLine">${ best.bookName }</h5>
+								<h5 class="writerLine" style="font-weight: lighter">${ best.writer }</h5>
+							</a>
+						</li>
+					</c:forEach>
+				</c:when>
+			</c:choose>
+			<li class="next"><a href="/"><i class="fas fa-angle-right" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
+			</ul>
+			
+	   
+		
+	</div>
+	<div class="main_list_title"><p>신착 도서</p><a href="/book/newBooks">더보기 <i class="fas fa-angle-right"></i></a></div>
+	<div id="main_new">
+	
+			<ul id="main_ul">
+			<li class="prev"><a href="/"><i class="fas fa-angle-left" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
+			<c:choose>
+				<c:when test="${ not empty newList }">
+					<c:forEach var="new" items="${ newList }">
+						<li style="width: 110px; height: 170px;">
+							<a href="/book/content?num=${ new.num }">
+								<img src="/upload/${ new.cover }" width="82px;"height="112px;" style="margin-left: auto; margin-right: auto; display: block;">
+								<h5 class="titleLine">${ new.bookName }</h5>
+								<h5 class="writerLine" style="font-weight: lighter" >${ new.writer }</h5>
+							</a>
+						</li>
+					</c:forEach>
+				</c:when>
+			</c:choose>
+			<li class="next"><a href="/"><i class="fas fa-angle-right" style="font-size: 50px; margin-top:30px;  color: #ccc;"></i></a></li>
+			</ul>
+	</div>
 
 
 

@@ -125,7 +125,7 @@ public class NoticeController {
 		// 주글쓰기
 		noticeService.addNotice(noticeVo);
 		
-		return "redirect:/board/content?num=" + num + "&pageNum=" + pageNum;
+		return "redirect:/board/notice";
 	} // Post - write
 	
 	
