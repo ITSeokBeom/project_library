@@ -55,15 +55,5 @@ public class HomeController {
 		return "index";
 	}
 	
-	
-	@GetMapping("/qna")
-	public String qna() {
-		return "board/qna";
-	}
-	
-	@GetMapping("/wish")
-	public String wish() {
-		return "board/wish";
-	}
 
 }
