@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" --%>
+<%--     pageEncoding="UTF-8"%> --%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
 <!-- <style type="text/css"> -->
 /* a.active { */
 /* 	font-weight: bold; */
@@ -100,15 +101,15 @@
 /* 	overflow: auto; */
 /* } */
 <!-- </style> -->
-<title>Insert title here</title>
-</head>
-<body>
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
 
-<%-- header 영역 --%>
-<jsp:include page="/WEB-INF/views/include/header.jsp" />
-<%-- sidebar 영역 --%>
-<jsp:include page="/WEB-INF/views/include/sideBar.jsp" /> 
-<div id ="wrap"> 
+<%-- <%-- header 영역 --%> --%>
+<%-- <jsp:include page="/WEB-INF/views/include/header.jsp" /> --%>
+<%-- <%-- sidebar 영역 --%> --%>
+<%-- <jsp:include page="/WEB-INF/views/include/sideBar.jsp" />  --%>
+<!-- <div id ="wrap">  -->
  
 <!-- 	<article id="app"> -->
 	
@@ -187,12 +188,12 @@
 <!-- 	</article> -->
     
 
-</div>
+<!-- </div> -->
 
 
 
 
-<%-- footer 영역 --%>
-<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-</body>
-</html>
+<%-- <%-- footer 영역 --%> --%>
+<%-- <jsp:include page="/WEB-INF/views/include/footer.jsp" /> --%>
+<!-- </body> -->
+<!-- </html> -->
