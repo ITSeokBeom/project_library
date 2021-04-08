@@ -14,16 +14,13 @@
 <script src="/script/s3Slider.js"></script>
 
  <style>
- * {
+* {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 #wrap_main{
-margin: 30px 150px 0 26%;	
-
-
-
+	margin: 30px 150px 0 26%;	
 /* slide   */
 }
 
@@ -371,93 +368,87 @@ color: #267AC2;
 
 <script>
 	
-	//slide-wrap
-	var slideWrapper = document.getElementById('slider-wrap','main_best');
-	//current slideIndexition
-	var slideIndex = 0;
-	//items
-	var slides = document.querySelectorAll('#slider-wrap ul li', '#main_best ul li');
-	//number of slides
-	var totalSlides = slides.length;
-	//get the slide width
-	var sliderWidth = slideWrapper.clientWidth;
-	//set width of items
-	slides.forEach(function (element) {
-	    element.style.width = sliderWidth + 'px';
-	})
-	//set width to be 'x' times the number of slides
-	var slider = document.querySelector('#slider-wrap ul#slider', '#main_best ul#slider');
-	slider.style.width = sliderWidth * totalSlides + 'px';
+// 	//slide-wrap
+// 	var slideWrapper = document.getElementById('slider-wrap','main_best');
+// 	//current slideIndexition
+// 	var slideIndex = 0;
+// 	//items
+// 	var slides = document.querySelectorAll('#slider-wrap ul li', '#main_best ul li');
+// 	//number of slides
+// 	var totalSlides = slides.length;
+// 	//get the slide width
+// 	var sliderWidth = slideWrapper.clientWidth;
+// 	//set width of items
+// 	slides.forEach(function (element) {
+// 	    element.style.width = sliderWidth + 'px';
+// 	})
+// 	//set width to be 'x' times the number of slides
+// 	var slider = document.querySelector('#slider-wrap ul#slider', '#main_best ul#slider');
+// 	slider.style.width = sliderWidth * totalSlides + 'px';
 
-	// next, prev
-	var nextBtn = document.getElementById('next');
-	var prevBtn = document.getElementById('previous');
-	nextBtn.addEventListener('click', function () {
-	    plusSlides(1);
-	});
-	prevBtn.addEventListener('click', function () {
-	    plusSlides(-1);
-	});
+// 	// next, prev
+// 	var nextBtn = document.getElementById('next');
+// 	var prevBtn = document.getElementById('previous');
+// 	nextBtn.addEventListener('click', function () {
+// 	    plusSlides(1);
+// 	});
+// 	prevBtn.addEventListener('click', function () {
+// 	    plusSlides(-1);
+// 	});
 
-	// hover
-	slideWrapper.addEventListener('mouseover', function () {
-	    this.classList.add('active');
-	    clearInterval(autoSlider);
-	});
-	slideWrapper.addEventListener('mouseleave', function () {
-	    this.classList.remove('active');
-	    autoSlider = setInterval(function () {
-	        plusSlides(1);
-	    }, 3000);
-	});
+// 	// hover
+// 	slideWrapper.addEventListener('mouseover', function () {
+// 	    this.classList.add('active');
+// 	    clearInterval(autoSlider);
+// 	});
+// 	slideWrapper.addEventListener('mouseleave', function () {
+// 	    this.classList.remove('active');
+// 	    autoSlider = setInterval(function () {
+// 	        plusSlides(1);
+// 	    }, 3000);
+// 	});
 
 
-	function plusSlides(n) {
-	    showSlides(slideIndex += n);
-	}
+// 	function plusSlides(n) {
+// 	    showSlides(slideIndex += n);
+// 	}
 
-	function currentSlides(n) {
-	    showSlides(slideIndex = n);
-	}
+// 	function currentSlides(n) {
+// 	    showSlides(slideIndex = n);
+// 	}
 
-	function showSlides(n) {
-	    slideIndex = n;
-	    if (slideIndex == -1) {
-	        slideIndex = totalSlides - 1;
-	    } else if (slideIndex === totalSlides) {
-	        slideIndex = 0;
-	    }
+// 	function showSlides(n) {
+// 	    slideIndex = n;
+// 	    if (slideIndex == -1) {
+// 	        slideIndex = totalSlides - 1;
+// 	    } else if (slideIndex === totalSlides) {
+// 	        slideIndex = 0;
+// 	    }
 
-	    slider.style.left = -(sliderWidth * slideIndex) + 'px';
-	    pagination();
-	}
+// 	    slider.style.left = -(sliderWidth * slideIndex) + 'px';
+// 	    pagination();
+// 	}
 
-	//pagination
-	slides.forEach(function () {
-	    var li = document.createElement('li');
-	    document.querySelector('#slider-pagination-wrap ul').appendChild(li);
-	})
+// 	//pagination
+// 	slides.forEach(function () {
+// 	    var li = document.createElement('li');
+// 	    document.querySelector('#slider-pagination-wrap ul').appendChild(li);
+// 	})
 
-	function pagination() {
-	    var dots = document.querySelectorAll('#slider-pagination-wrap ul li');
-	    dots.forEach(function (element) {
-	        element.classList.remove('active');
-	    });
-	    dots[slideIndex].classList.add('active');
-	}
+// 	function pagination() {
+// 	    var dots = document.querySelectorAll('#slider-pagination-wrap ul li');
+// 	    dots.forEach(function (element) {
+// 	        element.classList.remove('active');
+// 	    });
+// 	    dots[slideIndex].classList.add('active');
+// 	}
 
-	pagination();
-	var autoSlider = setInterval(function () {
-	    plusSlides(1);
-	}, 3000);
+// 	pagination();
+// 	var autoSlider = setInterval(function () {
+// 	    plusSlides(1);
+// 	}, 3000);
 	    
 	
-	/*==========================================================  */
-	
-	
-	
-	
-
 	
 </script>
 </body>
