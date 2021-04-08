@@ -29,6 +29,15 @@ public class BookService {
 		return bookMapper.getListBySearch(startRow, pageSize, category, search);
 	}
 	
+	public BookVo getBookByNum(int num) {
+		BookVo bookVo = bookMapper.getBookByNum(num);
+		return bookVo;
+	}
+	
+	public int getCountBook() {
+		return bookMapper.getCountBook();
+	}
+	
 	// 대출 카온트 1 추가하기
 	public void addBorrowCount(int num) {
 		bookMapper.addBorrowCount(num);
@@ -74,16 +83,6 @@ public class BookService {
 		return bookMapper.getListByNewBooks(startRow, pageSize, strThisMonth, strThisYear, strLastMonth, strLatMothYear);
 	}
 	
-	
-	
-	public BookVo getBookByNum(int num) {
-		BookVo bookVo = bookMapper.getBookByNum(num);
-		return bookVo;
-	}
-	
-	public int getCountBook() {
-		return bookMapper.getCountBook();
-	}
 	
 	public List<BookVo> getBestBooks(int startRow, int pageSize) {
 		return bookMapper.getBestBooks(startRow, pageSize);

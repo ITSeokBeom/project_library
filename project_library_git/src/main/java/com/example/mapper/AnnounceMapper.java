@@ -10,25 +10,16 @@ import com.example.domain.AnnounceVo;
 
 public interface AnnounceMapper {
 
-//	@Insert("INSERT INTO announce (id, subject, content, readcount, reg_date, ip, re_ref, re_lev, re_seq) "
-//			+ "VALUES (#{id}, #{subject}, #{content}, #{readcount}, #{regDate}, #{ip}, #{reRef}, #{reLev}, #{reSeq})")
 	void addNotice(AnnounceVo announceVo);
-	
 	
 	@Select("SELECT * FROM announce WHERE num = #{num}")
 	AnnounceVo getNoticeByNum(int num);
-	
-	
-	
+
 	void updateReadcount(int num);
 	
-	
-//	@Select("SELECT COUNT(*) FROM announce")
 	int getCountAll();
 	
-	
-	List<AnnounceVo> getNotices(@Param("startRow") int startRow, @Param("pageSize") int pageSize);
-	
+//	List<AnnounceVo> getNotices(@Param("startRow") int startRow, @Param("pageSize") int pageSize);
 	
 	void updateBoard(AnnounceVo announceVo);
 	
@@ -38,12 +29,9 @@ public interface AnnounceMapper {
 	@Delete("DELETE FROM announce")
 	void deleteAll();
 	
-	
 //	void updateReSeq(
 //			@Param("reRef") int reRef, 
 //			@Param("reSeq") int reSeq);
-	
-	
 	
 	int getCountBySearch(
 			@Param("category") String category, 

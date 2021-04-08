@@ -20,31 +20,24 @@ public class AnnounceService {
 		announceMapper.addNotice(announceVo);
 	}
 	
-	
 	public AnnounceVo getNoticeByNum(int num) {
 		AnnounceVo announceVo = announceMapper.getNoticeByNum(num);
 		return announceVo;
 	}
-	
-	
-	
+
 	public void updateReadcount(int num) {
 		announceMapper.updateReadcount(num);
 	}
-	
-	
 	
 	public int getCountAll() {
 		int count = announceMapper.getCountAll();
 		return count;
 	}
-	
-	
-	public List<AnnounceVo> getNotices(int startRow, int pageSize) {
-		List<AnnounceVo> list = announceMapper.getNotices(startRow, pageSize);
-		return list;
-	}
-	
+
+//	public List<AnnounceVo> getNotices(int startRow, int pageSize) {
+//		List<AnnounceVo> list = announceMapper.getNotices(startRow, pageSize);
+//		return list;
+//	}
 	
 	public void updateBoard(AnnounceVo announceVo) {
 		announceMapper.updateBoard(announceVo);
@@ -54,18 +47,14 @@ public class AnnounceService {
 		announceMapper.deleteNoticeByNum(num);
 	}
 	
-	
 	public void deleteAll() {
 		announceMapper.deleteAll();
 	}
-	
-	
 	
 	public int getCountBySearch(String category, String search) {
 		int count = announceMapper.getCountBySearch(category, search);
 		return count;
 	}
-	
 	
 	public List<AnnounceVo> getNoticesBySearch(int startRow, int pageSize, String category, String search) {
 		return announceMapper.getNoticesBySearch(startRow, pageSize, category, search);

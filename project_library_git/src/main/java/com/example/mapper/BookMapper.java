@@ -24,6 +24,12 @@ public interface BookMapper {
 			@Param("category") String category, 
 			@Param("search") String search);
 	
+	@Select("SELECT * FROM book WHERE num = #{num}")
+	BookVo getBookByNum(int num);
+	
+	@Select("SELECT COUNT(*) FROM book")
+	int getCountBook();
+	
 	// 대출 카온트 1 추가하기
 	void addBorrowCount(int num);
 	
@@ -61,12 +67,6 @@ public interface BookMapper {
 			@Param("strLastMonth") String strLastMonth, 
 			@Param("strLatMothYear") String strLatMothYear);
 	
-	
-	@Select("SELECT * FROM book WHERE num = #{num}")
-	BookVo getBookByNum(int num);
-	
-	@Select("SELECT COUNT(*) FROM book")
-	int getCountBook();
 	
 	List<BookVo> getBestBooks(@Param("startRow") int startRow, @Param("pageSize") int pageSize);
 	
