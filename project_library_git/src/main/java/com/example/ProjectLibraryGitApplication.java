@@ -9,7 +9,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 @SpringBootApplication
 @EnableScheduling
 @MapperScan("com.example.mapper")
-//@EnableWebSocket
+@EnableWebSocket
 public class ProjectLibraryGitApplication {
 
 	public static void main(String[] args) {
