@@ -1,13 +1,11 @@
 package com.example.mapper;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.domain.AlarmVo;
 import com.example.domain.BookVo;
 import com.example.domain.BorrowVo;
-import com.example.domain.ReserveVo;
 
 public interface BorrowMapper {
 
