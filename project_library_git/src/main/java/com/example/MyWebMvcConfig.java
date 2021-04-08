@@ -29,7 +29,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
 		registration.addPathPatterns("/my/*");
 		registration.addPathPatterns("/board/*");
 		registration.addPathPatterns("/board/announce/*");
-//		registration.addPathPatterns("/chat/*");
+		registration.addPathPatterns("/chat/*");
 		registration.addPathPatterns("/chat/room/*");
 		
 		
@@ -39,7 +39,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
 		registration.excludePathPatterns("/board/content");
 		registration.excludePathPatterns("/board/announce/notice");
 		registration.excludePathPatterns("/board/announce/content");
-//		registration.excludePathPatterns("/chat/list");
+		registration.excludePathPatterns("/chat/list");
 		
 		// 회원 로그인 상태유지 인터셉터 등록하기
 		registry.addInterceptor(memberStayLoggedInInterceptor).addPathPatterns("/*");
